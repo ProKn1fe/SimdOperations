@@ -1,6 +1,11 @@
 Remarks:
 * All Parallel operations run as AsParallel().WithDegreeOfParallelism(4)
 
+TODO:
+* Simd version of X25519 cryptography
+* Min and max with IEnumerable<T>
+* Something with avx?
+
 ####SumOperation
 
 TODO: Why linq sum so slow?
