@@ -65,7 +65,7 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 | ParallelLinqMin |  70.38 ms | 1.745 ms | 5.062 ms |   3,912 B |
 |         SimdMin |  20.75 ms | 0.088 ms | 0.082 ms |      16 B |
 
-####MaxOperation
+#### MaxOperation
 
 ``` ini
 BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1415 (21H2)
