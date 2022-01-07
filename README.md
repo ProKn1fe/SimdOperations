@@ -10,11 +10,13 @@ TODO:
 
 TODO: Why linq sum so slow?
 
+``` ini
 BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1415 (21H2)
 Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+```
 
 |      Method |        Mean |     Error |    StdDev |  Gen 0 | Allocated |
 |------------ |------------:|----------:|----------:|-------:|----------:|
@@ -26,11 +28,13 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 
 #### CompareOperation
 
+``` ini
 BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1415 (21H2)
 Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+```
 
 |                              Method |         Mean |      Error |       StdDev |  Gen 0 |  Gen 1 | Allocated |
 |------------------------------------ |-------------:|-----------:|-------------:|-------:|-------:|----------:|
@@ -47,11 +51,13 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 
 TODO: It run fast only with arrays[], IEnumerable<T> performance are slow.
 
+``` ini
 BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1415 (21H2)
 Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+```
 
 |          Method |      Mean |    Error |   StdDev | Allocated |
 |---------------- |----------:|---------:|---------:|----------:|
@@ -61,11 +67,13 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 
 ####MaxOperation
 
+``` ini
 BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1415 (21H2)
 Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+```
 
 |          Method |      Mean |    Error |    StdDev |    Median | Allocated |
 |---------------- |----------:|---------:|----------:|----------:|----------:|
