@@ -6,7 +6,7 @@ TODO:
 * Min and max with IEnumerable<T>
 * Something with avx?
 
-####SumOperation
+#### SumOperation
 
 TODO: Why linq sum so slow?
 
@@ -15,6 +15,7 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+
 |      Method |        Mean |     Error |    StdDev |  Gen 0 | Allocated |
 |------------ |------------:|----------:|----------:|-------:|----------:|
 |      SumFor |  2,365.3 ns |  17.50 ns |  16.37 ns |      - |         - |
@@ -23,13 +24,14 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 | SumParallel | 12,541.4 ns | 113.14 ns | 100.29 ns | 0.8850 |   3,728 B |
 |     SumSimd |    367.4 ns |   2.98 ns |   2.79 ns |      - |         - |
 
-####CompareOperation
+#### CompareOperation
 
 BenchmarkDotNet=v0.13.1, OS=Windows 10.0.19044.1415 (21H2)
 Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical cores
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+
 |                              Method |         Mean |      Error |       StdDev |  Gen 0 |  Gen 1 | Allocated |
 |------------------------------------ |-------------:|-----------:|-------------:|-------:|-------:|----------:|
 |                   CompareForSuccess | 42,874.55 us | 383.164 us |   319.960 us |      - |      - |      57 B |
@@ -41,7 +43,7 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 |                  CompareSimdSuccess | 38,048.60 us | 217.637 us |   169.917 us |      - |      - |      34 B |
 |                     CompareSimdFail | 37,401.66 us | 165.255 us |   146.494 us |      - |      - |      34 B |
 
-####MinOperation
+#### MinOperation
 
 TODO: It run fast only with arrays[], IEnumerable<T> performance are slow.
 
@@ -50,6 +52,7 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+
 |          Method |      Mean |    Error |   StdDev | Allocated |
 |---------------- |----------:|---------:|---------:|----------:|
 |         LinqMin | 308.17 ms | 2.851 ms | 2.381 ms |     640 B |
@@ -63,6 +66,7 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 .NET SDK=6.0.200-preview.21617.4
   [Host]     : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
+
 |          Method |      Mean |    Error |    StdDev |    Median | Allocated |
 |---------------- |----------:|---------:|----------:|----------:|----------:|
 |         LinqMax | 345.30 ms | 6.687 ms |  7.433 ms | 342.50 ms |     752 B |
