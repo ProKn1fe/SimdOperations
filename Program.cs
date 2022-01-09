@@ -14,11 +14,12 @@ namespace SimdOperations
         public static void Main()
         {
 #if RELEASE
-            //BenchmarkRunner.Run<SumOperation>();
+            BenchmarkRunner.Run<SumOperation>();
             //BenchmarkRunner.Run<CompareOperation>();
             //BenchmarkRunner.Run<MinOperation>();
-            BenchmarkRunner.Run<MaxOperation>();
+            //BenchmarkRunner.Run<MaxOperation>();
 #else
+            Console.WriteLine($"Vector<T>: {Vector.IsHardwareAccelerated}");
             Console.WriteLine($"Aes: {Aes.IsSupported}");
             Console.WriteLine($"Avx: {Avx.IsSupported}");
             Console.WriteLine($"Avx2: {Avx2.IsSupported}");
@@ -36,8 +37,12 @@ namespace SimdOperations
             Console.WriteLine(span[5]);
             a[5] = 1000;
             Console.WriteLine(span[5]);
+            var vc = Vector256<int>.Count;
 
-            var res = new MaxOperation().SimdMax(new int[] { 10, 32, 14, 55, 43, 76, 42, 27, 2, 31, 24, 11, 44, 12, 58, 64 });
+            //var res = new MaxOperation().SimdMax(new int[] { 10, 32, 14, 55, 43, 76, 42, 27, 2, 31, 24, 11, 44, 12, 58, 64 });
+            var sum = new SumOperation();
+            sum.SumSse42Vector128();
+            sum.SumAvx2Vector256();
             Console.ReadLine();
 #endif
         }

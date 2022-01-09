@@ -32,49 +32,49 @@ namespace SimdOperations
         [Benchmark]
         public void CompareForSuccess()
         {
-            var result = CompareFor(Array1, Array2);
+            _ = CompareFor(Array1, Array2);
         }
 
         [Benchmark]
         public void CompareForFail()
         {
-            var result = CompareFor(Array1, Array3);
+            _ = CompareFor(Array1, Array3);
         }
 
         [Benchmark]
         public void CompareSequenceEqualSuccess()
         {
-            var result = CompareSequenceEqual(Array1, Array2);
+            _ = CompareSequenceEqual(Array1, Array2);
         }
 
         [Benchmark]
         public void CompareSequenceEqualFail()
         {
-            var result = CompareSequenceEqual(Array1, Array3);
+            _ = CompareSequenceEqual(Array1, Array3);
         }
 
         [Benchmark]
         public void CompareSequenceEqualParallelSuccess()
         {
-            var result = CompareSequenceEqualParallel(Array1, Array2);
+            _ = CompareSequenceEqualParallel(Array1, Array2);
         }
 
         [Benchmark]
         public void CompareSequenceEqualParallelFail()
         {
-            var result = CompareSequenceEqualParallel(Array1, Array3);
+            _ = CompareSequenceEqualParallel(Array1, Array3);
         }
 
         [Benchmark]
         public void CompareSimdSuccess()
         {
-            var result = CompareSimd(Array1, Array2);
+            _ = CompareSimd(Array1, Array2);
         }
 
         [Benchmark]
         public void CompareSimdFail()
         {
-            var result = CompareSimd(Array1, Array3);
+            _ = CompareSimd(Array1, Array3);
         }
 
         private bool CompareFor(int[] array1, int[] array2)
@@ -106,7 +106,7 @@ namespace SimdOperations
             {
                 var vector1 = new Vector<int>(array1, a);
                 var vector2 = new Vector<int>(array2, a);
-                if (!Vector.EqualsAll<int>(vector1, vector2))
+                if (!Vector.EqualsAll(vector1, vector2))
                     return false;
             }
 
