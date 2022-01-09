@@ -6,6 +6,9 @@ TODO:
 * Min and max with IEnumerable<T>
 * Something with avx?
 
+Changelog:
+* 09.01.2021 - Adding SumSse42Vector128 and SumAvx2Vector256 benchmarks.
+
 #### SumOperation
 
 TODO: Why linq sum so slow?
@@ -18,13 +21,15 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
   DefaultJob : .NET 6.0.1 (6.0.121.56705), X64 RyuJIT
 ```
 
-|      Method |        Mean |     Error |    StdDev |  Gen 0 | Allocated |
-|------------ |------------:|----------:|----------:|-------:|----------:|
-|      SumFor |  2,365.3 ns |  17.50 ns |  16.37 ns |      - |         - |
-|  SumForeach |  1,542.3 ns |  12.93 ns |  12.09 ns |      - |         - |
-|     SumLinq | 16,468.5 ns | 148.85 ns | 131.95 ns |      - |      32 B |
-| SumParallel | 12,541.4 ns | 113.14 ns | 100.29 ns | 0.8850 |   3,728 B |
-|     SumSimd |    367.4 ns |   2.98 ns |   2.79 ns |      - |         - |
+|            Method |        Mean |     Error |    StdDev | Allocated |
+|------------------ |------------:|----------:|----------:|----------:|
+|            SumFor |   306.33 us |  2.769 us |  2.590 us |         - |
+|        SumForeach |   203.02 us |  1.266 us |  1.122 us |         - |
+|           SumLinq | 2,145.04 us | 40.648 us | 38.022 us |      34 B |
+|       SumParallel |   857.53 us | 16.753 us | 27.990 us |   3,752 B |
+|           SumSimd |    74.20 us |  0.660 us |  0.617 us |         - |
+| SumSse42Vector128 |   114.05 us |  1.569 us |  1.467 us |         - |
+|  SumAvx2Vector256 |    67.42 us |  1.270 us |  1.247 us |         - |
 
 #### CompareOperation
 
