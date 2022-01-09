@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Numerics;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
 
@@ -37,10 +39,11 @@ namespace SimdOperations
             Console.WriteLine(span[5]);
             a[5] = 1000;
             Console.WriteLine(span[5]);
-            var vc = Vector256<int>.Count;
+            var vc = Vector256.Create(10, 20, 30, 40, 50, 60, 70, 80);
 
             //var res = new MaxOperation().SimdMax(new int[] { 10, 32, 14, 55, 43, 76, 42, 27, 2, 31, 24, 11, 44, 12, 58, 64 });
             var sum = new SumOperation();
+            sum.SumFor();
             sum.SumSse42Vector128();
             sum.SumAvx2Vector256();
             Console.ReadLine();

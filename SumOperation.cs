@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
 
@@ -66,23 +67,19 @@ namespace SimdOperations
         }
 
         [Benchmark]
-        public void SumSse42Vector128()
+        public unsafe void SumSse42Vector128()
         {
             var result = 0;
             var vectorCount = Vector128<int>.Count;
             Vector128<int> vector;
 
-            unsafe
+            fixed (int* ptr = &Array[0])
             {
-                fixed (int* ptr = &Array[0])
-                    vector = Sse2.LoadVector128(ptr);
+                vector = Sse2.LoadVector128(ptr);
                 for (var a = vectorCount; a < Array.Length; a += vectorCount)
                 {
-                    fixed (int *ptr = &Array[a])
-                    {
-                        var plusVector = Sse2.LoadVector128(ptr);
-                        vector = Sse2.Add(plusVector, vector);
-                    }
+                    var plusVector = Sse2.LoadVector128(&ptr[a]);
+                    vector = Sse2.Add(plusVector, vector);
                 }
             }
 
@@ -91,23 +88,19 @@ namespace SimdOperations
         }
 
         [Benchmark]
-        public void SumAvx2Vector256()
+        public unsafe void SumAvx2Vector256()
         {
             var result = 0;
             var vectorCount = Vector256<int>.Count;
             Vector256<int> vector;
 
-            unsafe
+            fixed (int* ptr = &Array[0])
             {
-                fixed (int* ptr = &Array[0])
-                    vector = Avx.LoadVector256(ptr);
+                vector = Avx.LoadVector256(ptr);
                 for (var a = vectorCount; a < Array.Length; a += vectorCount)
                 {
-                    fixed (int* ptr = &Array[a])
-                    {
-                        var plusVector = Avx.LoadVector256(ptr);
-                        vector = Avx2.Add(plusVector, vector);
-                    }
+                    var plusVector = Avx.LoadVector256(&ptr[a]);
+                    vector = Avx2.Add(plusVector, vector);
                 }
             }
 
