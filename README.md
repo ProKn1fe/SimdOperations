@@ -1,4 +1,4 @@
-Remarks:
+﻿Remarks:
 * All Parallel operations run as AsParallel().WithDegreeOfParallelism(4)
 
 TODO:
@@ -23,13 +23,13 @@ Intel Core i7-4910MQ CPU 2.90GHz (Haswell), 1 CPU, 8 logical and 4 physical core
 
 |            Method |        Mean |     Error |    StdDev | Allocated |
 |------------------ |------------:|----------:|----------:|----------:|
-|            SumFor |   306.33 us |  2.769 us |  2.590 us |         - |
-|        SumForeach |   203.02 us |  1.266 us |  1.122 us |         - |
-|           SumLinq | 2,145.04 us | 40.648 us | 38.022 us |      34 B |
-|       SumParallel |   857.53 us | 16.753 us | 27.990 us |   3,752 B |
-|           SumSimd |    74.20 us |  0.660 us |  0.617 us |         - |
-| SumSse42Vector128 |   114.05 us |  1.569 us |  1.467 us |         - |
-|  SumAvx2Vector256 |    67.42 us |  1.270 us |  1.247 us |         - |
+|            SumFor |   301.63 μs |  4.190 μs |  3.920 μs |         - |
+|        SumForeach |   198.74 μs |  2.275 μs |  2.017 μs |         - |
+|           SumLinq | 2,240.49 μs | 24.771 μs | 21.959 μs |      34 B |
+|       SumParallel |   820.70 μs |  7.863 μs |  6.970 μs |   3,762 B |
+|           SumSimd |    73.14 μs |  0.727 μs |  0.644 μs |         - |
+| SumSse42Vector128 |    82.37 μs |  0.559 μs |  0.523 μs |         - |
+|  SumAvx2Vector256 |    59.35 μs |  0.536 μs |  0.501 μs |         - |
 
 #### CompareOperation
 
